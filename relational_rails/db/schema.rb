@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_13_190913) do
+ActiveRecord::Schema.define(version: 2022_10_13_192330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2022_10_13_190913) do
     t.boolean "broken"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "set_id"
+    t.index ["set_id"], name: "index_pieces_on_set_id"
   end
 
+  create_table "sets", force: :cascade do |t|
+    t.string "name"
+    t.integer "min_age"
+    t.boolean "retired"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "pieces", "sets"
 end
