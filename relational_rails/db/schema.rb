@@ -10,22 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_13_192330) do
+ActiveRecord::Schema.define(version: 2022_10_14_214741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pieces", force: :cascade do |t|
-    t.string "name"
-    t.integer "piece_number"
-    t.boolean "broken"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "set_id"
-    t.index ["set_id"], name: "index_pieces_on_set_id"
-  end
-
-  create_table "sets", force: :cascade do |t|
+  create_table "lego_sets", force: :cascade do |t|
     t.string "name"
     t.integer "min_age"
     t.boolean "retired"
@@ -33,5 +23,15 @@ ActiveRecord::Schema.define(version: 2022_10_13_192330) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "pieces", "sets"
+  create_table "pieces", force: :cascade do |t|
+    t.string "name"
+    t.integer "piece_number"
+    t.boolean "broken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "lego_set_id"
+    t.index ["lego_set_id"], name: "index_pieces_on_lego_set_id"
+  end
+
+  add_foreign_key "pieces", "lego_sets"
 end
