@@ -1,0 +1,11 @@
+<h1>Parents Index</h1>
+
+<% @legosets.each do |legoset| %>
+  <h3><%= legoset.name %></h3>
+  <p>Age Limit <%= legoset.min_age %></p>
+  <% if(legoset.retired) %>
+    <p><%= legoset.name %> is retired</p>
+  <% else %>
+    <p><%= legoset.name %> is not retired yet</p>
+  <% end %>
+<% end %>
