@@ -5,5 +5,6 @@ class ParentsController < ApplicationController
 
   def show
     @legoset = LegoSet.find(params[:id])
+    @piece_count = @legoset.pieces.count
   end
 end
