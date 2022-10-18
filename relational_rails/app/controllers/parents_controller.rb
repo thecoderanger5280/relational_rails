@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
   def index
-    @legosets = LegoSet.all
+    @legosets = LegoSet.all.order(:created_at)
   end
 
   def show
