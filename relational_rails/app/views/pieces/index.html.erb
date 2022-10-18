@@ -1,0 +1,8 @@
+<h1>Pieces Index</h1>
+
+<% @pieces.each do |piece| %>
+  <h3>Piece name <%= piece.name %></h3>
+  <p>Piece number <%= piece.piece_number %></p>
+  <p>Piece broken? <%= piece.broken %></p>
+  <p>Belongs to Lego Set ID <%= piece.lego_set_id %></p>
+<% end %>

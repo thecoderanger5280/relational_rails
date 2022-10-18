@@ -1,3 +1,3 @@
 class Piece < ApplicationRecord
-  belongs_to :set
+  belongs_to :lego_set
 end
