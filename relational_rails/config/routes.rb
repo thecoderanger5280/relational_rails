@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/parents', to: 'parents#index'
   get '/parents/:id', to: 'parents#show'
   get '/pieces', to: 'pieces#index'
+  get '/pieces/:id', to: 'pieces#show'
+  get '/parents/:parent_id/pieces', to: 'parents_pieces#index'
 end
